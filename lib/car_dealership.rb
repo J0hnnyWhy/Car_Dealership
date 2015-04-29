@@ -41,7 +41,19 @@ class Vehicle
     american_cars = ["Chrysler", "Ford", "GM"] #Creates a new array called 'American_Cars'
     american_cars.include?(@make).&(age.<(16)) #Evaluates if the value in @make is in the array American_cars and evaluates if the value in age is less than 16 and returns a boolean value.
   end
+
   define_method(:id) do
     @id
+  end
+
+  define_singleton_method(:find) do |identification|
+    found_vehicle = nil
+    @@vehicles.each() do |vehicle|
+      if vehicle.id().eql?(identification.to_i())
+        found_vehicle = vehicle
+      else "no vehicle found"
+      end
+    end
+    found_vehicle
   end
 end
