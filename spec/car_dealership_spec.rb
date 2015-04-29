@@ -1,11 +1,12 @@
 require('rspec')
+require('pry')
 require('car_dealership')
 
 describe(Vehicle) do
   before() do
     Vehicle.clear()
   end
-  
+
   describe('#make') do
     it('return the make of the vehicle') do
       test_vehicle = Vehicle.new("Toyota", "Prius", 2000)
@@ -32,6 +33,20 @@ describe(Vehicle) do
       test_vehicle = Vehicle.new("Toyota", "Prius", 2000)
       test_vehicle.save()
       expect(Vehicle.all()).to(eq([test_vehicle]))
+    end
+  end
+  describe("#age") do
+    it("returns the vehicles age") do
+      test_vehicle = Vehicle.new("Toyota", "Prius", 2000)
+      test_vehicle.save()
+      expect(test_vehicle.age()).to(eq(15))
+    end
+  end
+  describe("#worth_buying") do
+    it("determines if the car is worth buying") do
+      test_vehicle = Vehicle.new("Toyota", "Prius", 2000)
+      test_vehicle.save()
+      expect(test_vehicle.worth_buying()).to(eq(false))
     end
   end
 end
