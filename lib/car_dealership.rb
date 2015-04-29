@@ -1,5 +1,6 @@
+#https://github.com/johnandjoss/car-dealership
 class Vehicle
-  @@vehicles = [] #Creates a class variable called '@@vehicles' which is an emtpy array
+  @@vehicles = [] #Creates a class variable called '@@vehicles' which is an emtpy array until vehicle has been saved
 
   define_method(:initialize) do |make, model, year| #Initializes the class Vehicle passes in the parameters: make, model, year.
     @make = make #Creates an instance variable of the parameter make
